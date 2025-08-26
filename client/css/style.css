@@ -1,0 +1,53 @@
+body {
+    background-color: white;
+}
+
+.quiz-container {
+    background-color: lightgray;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.options-container .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.options-container .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.option-card {
+    background-color: white;
+    border: 2px solid lightgrey;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+}
+
+.option-card:hover {
+    background-color: aqua;
+    border-color: darkgray;
+}
+
+/* .option-card.selected {
+    background-color: blue;
+    color: white;
+    border-color: darkblue;
+} */
+
+.btn-main {
+    background-color: white;
+    color: black;
+    padding: 10px 30px;
+    border: none;
+}
+
+.btn-main:hover {
+    background-color: darkgrey;
+}
