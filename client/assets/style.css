@@ -2,18 +2,33 @@ body {
     background-color: white;
 }
 
+.navbar {
+    background-color: darkgray;
+    padding: 15px 30px;
+}
+
+.logo {
+    height: 200px;
+    width: auto;
+}
+
 .quiz-container {
     background-color: lightgray;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 60px;
+}
+
+.question-prompt {
+    font-size: 1.8rem;
 }
 
 .options-container .row {
     display: flex;
     flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-bottom: 25px;
 }
 
 .options-container .col-md-6 {
@@ -28,11 +43,13 @@ body {
     border: 2px solid lightgrey;
     border-radius: 8px;
     transition: all 0.2s ease-in-out;
+    font-size: 1.2rem;
 }
 
 .option-card:hover {
     background-color: aqua;
     border-color: darkgray;
+    transform: scale(1.02);
 }
 
 /* .option-card.selected {
@@ -46,6 +63,7 @@ body {
     color: black;
     padding: 10px 30px;
     border: none;
+    font-size: 1.4rem;
 }
 
 .btn-main:hover {

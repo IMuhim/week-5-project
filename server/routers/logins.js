@@ -1,8 +1,8 @@
 const { Router } = require('express');
-const loginController = require('../controllers/logins');
-const loginRouter = Router();
+const gameController = require('../controllers/game');
+const gameRouter = Router();
 
-loginRouter.post('/', loginController.create);
+gameRouter.get('/', gameController.show);
 
 
-module.exports = loginRouter;
+module.exports = gameRouter;

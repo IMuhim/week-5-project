@@ -1,8 +1,8 @@
 const Logins = require("../models/Logins");
 
-async function create(req,res) {
+async function show(req,res) {
     try {
-        
+        console.log(req);
     } catch (err) {
         res.status(400).json({"error": err.message})
     }
