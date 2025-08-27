@@ -8,19 +8,23 @@ class Questions{
         this.subject_id = subject_id
     }
 
-    static async getAllBySubjectId(subjectid){
-        const response = await db.query('SELECT * FROM questions WHERE subject_id = $1', [subjectid])
+    static async getAllBySubjectId(subject_id){
+        const response = await db.query('SELECT * FROM questions WHERE subject_id = $1', [subject_id])
         if(response.rows.length === 0){
-            throw new Error("Unable to locate questions with that subject ID")
+            throw new Error("Unable to locate questions with that subject id")
         }
         
-        //For loop to ensure all questions stored on the response object are returned as an instance of Question class
-        for(let i = 0; i< response.rows.length; i++){
-            return new Questions(response.rows)
-        }
+        return response.rows.map(row => new Questions(row))
 
     }
 
+    static async getSubjectById(subject_id){
+        const response = await db.query('SELECT subject_name FROM subjects WHERE subject_id = $1', [subject_id])
+        if(response.rows.lenght === 0){
+            throw new Error("Unable to to locate subject with that id")
+        }
+        return response.rows[0].subject_name
+    }
 
 
 
@@ -28,4 +32,31 @@ class Questions{
 
 
 
-module.exports = Questions
+class Answers{
+    constructor({answer_id, answer_text, is_correct, question_id}){
+        this.answer_id = answer_id
+        this.answer_text = answer_text
+        this.is_correct = is_correct
+        this.question_id = question_id
+
+    }
+
+
+    static async getAnswersByQuestionId(question_id){
+        const response = await db.query('SELECT * FROM answers WHERE question_id = $1', [question_id])
+        if(response.rows.length === 0){
+            throw new Error("Unable to locate answers with that question id")
+        }
+        
+        return response.rows.map(row => new Answers(row))
+        
+        
+    }
+}
+
+
+
+module.exports = { 
+    Questions, 
+    Answers,
+}
