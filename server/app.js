@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const logger = require("./middleware/logger");
 
-const loginRouter = require('./routers/logins');
+const gameRouter = require('./routers/router');
 
 
 const app = express();
@@ -12,6 +12,6 @@ app.use(logger);
 
 // app.use("/", ...Router)
 
-app.use('/login',loginRouter)
+app.use('/game', gameRouter)
 
 module.exports = app;
