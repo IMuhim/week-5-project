@@ -1,8 +1,17 @@
-const { Router } = require('express');
-const loginController = require('../controllers/logins');
-const loginRouter = Router();
 
-loginRouter.post('/', loginController.login);
+const Logins = require("../models/User");
 
+async function login(req,res) {
+    try {
+        const {email, password} = req.body
 
-module.exports = loginRouter;
+        const user = await Logins.login({email, password})
+        res.status(200).json({'message':'login successful',user})
+    } catch (err) {
+        res.status(400).json({"error": err.message})
+    }
+}
+
+module.exports = {
+    login
+}
