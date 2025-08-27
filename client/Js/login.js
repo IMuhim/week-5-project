@@ -4,8 +4,7 @@ loginForm.addEventListener('submit', async (event)=>{
     event.preventDefault()
     const email  = event.target[0].value
     const password = event.target[1].value
-    console.log(email)
-    console.log(password)
+    
     const data = {
         email:email,
         password:password

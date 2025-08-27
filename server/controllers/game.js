@@ -1,14 +1,35 @@
-const Question = require('../models/Game')
+const {Questions, Answers} = require('../models/Game')
 
 async function show(req, res){
     try{
-        let id = req.body.id
-        const questions = await Question.getAllBySubjectId(id)
-        res.stauts(200).json(questions)
+        const subject_id = req.query.id
+        const questions = await Questions.getAllBySubjectId(subject_id)
+        res.status(200).json(questions)
     }catch(err){
         res.status(404).json({ error: err.message })
     }
 }
 
+async function pull(req, res){
+    try{
+        const question_id = req.params.id
+        const answers = await Answers.getAnswersByQuestionId(question_id)
+        console.log(answers)
+        res.status(200).json(answers)
+    }catch(err){
+        res.status(404).json({ error: err.message })
+    }
+}
 
-module.exports = { show }
+async function getSubject(req, res){
+    try{
+        const subject_id = req.params.id
+        const subject_name = await Questions.getSubjectById(subject_id)
+        res.status(200).json({subject_name})
+    }catch(err){
+        res.status(404).json({ error: err.message})
+    }
+}
+
+
+module.exports = { show, pull, getSubject }

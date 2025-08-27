@@ -6,6 +6,10 @@ registerForm.addEventListener('submit', async (event)=>{
     const name = event.target[0].value
     const email = event.target[1].value
     const password = event.target[2].value
+    const retypedPassword = event.target[3].value
+    if(password !== retypedPassword){
+        throw new Error('Passwords dont match')
+    }
 
     const data = {
         name:name,

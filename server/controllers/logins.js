@@ -6,7 +6,6 @@ async function login(req,res) {
         const {email, password} = req.body
 
         const user = await Logins.login({email, password})
-        console.log(req.body);
         res.status(200).json({'message':'login successful',user})
     } catch (err) {
         res.status(400).json({"error": err.message})

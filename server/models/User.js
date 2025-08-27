@@ -39,8 +39,8 @@ class User {
     if (!match) {
       throw new Error("Invalid email or password.");
     }
-
-    return new User({ id: user.id, name: user.name, email: user.email });
+    // console.log(user)
+    return new User({ user_id: user.user_id, name: user.name, email: user.email });
   }
 }
 

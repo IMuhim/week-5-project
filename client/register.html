@@ -1,36 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="register.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="./Js/register.js"></script>
+    <link rel="stylesheet" href="style.css" />
     <title>Sign up</title>
-</head>
-<body>
-    <form id="registerForm">
-        <div>
-        <label for="name">Enter Name: </label>
-        <input type="text" name="name" id="name" placeholder="i.e. Yahya" required/>
-        </div>
-
-        <div>
-        <label for="email">Enter Email: </label>
-        <input type="email" name="email" id="email" placeholder="i.e. text@gmail.com" required/>
-        </div>
-
-        <div>
-        <label for="password">Enter Password: </label>
-        <input type="password" name="password" id ="password" placeholder="Enter your password" required />
-        </div>
-
-        <div>
-        <label for="password">Retype Password: </label>
-        <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Retype your password" required />
-        </div>
-
-        <div>
-        <input type="submit" value="submit" />
-        </div>
-    </form>
-</body>
+  </head>
+  <body>
+    <div class="form-container">
+        <img src="assets/Guardians of the DB logo.png" alt="Guardians of the DB Logo" class="logo">
+        <form id="registerForm">
+          <h2>Sign Up</h2>
+          <div>
+            <label for="name">Name:</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="i.e. Yahya"
+              required
+            />
+          </div>
+          <div>
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="your@email.com"
+              required
+            />
+          </div>
+          <div>
+            <label for="password">Password:</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="********"
+              required
+            />
+          </div>
+          <div>
+            <label for="password">Retype Password:</label>
+            <input
+              type="password"
+              name="confirmPassword"
+              id="confirmPassword"
+              placeholder="********"
+              required
+            />
+          </div>
+          <div>
+            <input type="submit" value="Register" />
+          </div>
+          <div class="form-footer">
+            <p>Already have an account? <a href="login.html">Login</a></p>
+          </div>
+        </form>
+    </div>
+  </body>
 </html>
