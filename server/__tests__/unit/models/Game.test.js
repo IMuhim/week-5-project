@@ -1,5 +1,6 @@
 const db = require("/server/db/connect.js");
-const Questions = require("/server/models/Game.js");
+const{ Questions } = require("/server/models/Game.js");
+const{ Answers } = require("/server/models/Game.js");
 
 describe("Questions", () => {
 
@@ -10,13 +11,13 @@ describe("Questions", () => {
             const mockQuestion = [ 
                 {question_id: 1, question_text: "Mock test 1", subject_id: 1 },
                 {question_id: 2, question_text: "Mock test 2", subject_id: 1 },
-                {question_id: 3, question_text: "Mock test 3", subject_id: 2 }
+                {question_id: 3, question_text: "Mock test 3", subject_id: 1 }
             ];
             jest.spyOn(db, "query").mockResolvedValueOnce({ rows: mockQuestion });
             // ACT
             const result = await Questions.getAllBySubjectId(1);
             // ASSERT
-            expect(result).toHaveLength(2);
+            expect(result).toHaveLength(3);
             expect(result[0]).toHaveProperty("question_id");
             expect(result[0]).toHaveProperty("question_text");
             expect(result[0]).toHaveProperty("subject_id");
@@ -28,7 +29,7 @@ describe("Questions", () => {
             // ARRANGE 
             jest.spyOn(db, "query").mockResolvedValueOnce({ rows: [] })
             // ACT
-            await expect(Questions.getAllBySubjectId()).rejects.toThrow("Unable to locate questions with that subject id")
+            await expect(Questions.getAllBySubjectId(9999)).rejects.toThrow("Unable to locate questions with that subject id")
             // ASSERT
         })
     })
