@@ -1,8 +1,8 @@
 const request = require("supertest");
-const app = require("../app");
-const Logins = require("../models/Logins");
+const app = require("../../../../app");
+const Logins = require("../../../models/Logins");  
 
-jest.mock("../models/Logins");
+jest.mock("../../../models/Logins");
 
 describe("POST /auth/login", () => {
 

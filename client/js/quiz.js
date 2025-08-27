@@ -4,13 +4,15 @@ const option1 = document.querySelector('#option-1')
 const option2 = document.querySelector('#option-2')
 const option3 = document.querySelector('#option-3')
 const option4 = document.querySelector('#option-4')
+const submitBtn = document.querySelector('#submit-btn')
 let question = 0
-let optiona = 0
-let optionb = 1
-let optionc = 2
-let optiond = 3
+// let optiona = 0
+// let optionb = 1
+// let optionc = 2
+// let optiond = 3
 
 document.addEventListener('DOMContentLoaded',  FetchAnswers)
+submitBtn.addEventListener('Click', loadNextQuestion)
 
 
 
@@ -40,7 +42,7 @@ const id = params.get('id')
 async function FetchQuestion(id){
     const response = await fetch(`http://localhost:3000/game/?id=${id}`)
     const data = await response.json()
-    questionText.textContent = data[0].question_text
+    questionText.textContent = data[question].question_text
     return data
 }
 
@@ -50,12 +52,11 @@ async function FetchAnswers(){
     const questionId = data[question].question_id
     const response = await fetch(`http://localhost:3000/game/${questionId}`)
     const answers = await response.json()
-    console.log(answers)
 
-    option1.textContent = answers[optiona].answer_text
-    option2.textContent = answers[optionb].answer_text
-    option3.textContent = answers[optionc].answer_text
-    option4.textContent = answers[optiond].answer_text
+    option1.textContent = answers[0].answer_text
+    option2.textContent = answers[1].answer_text
+    option3.textContent = answers[2].answer_text
+    option4.textContent = answers[3].answer_text
     
 
 }
@@ -63,10 +64,7 @@ async function FetchAnswers(){
 
 async function loadNextQuestion(){
     question++
-    optiona++
-    optionb++
-    optionc++
-    optiond++
+    
 
     FetchAnswers()
 
