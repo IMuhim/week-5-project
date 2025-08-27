@@ -4,7 +4,7 @@ const gameRouter = Router();
 
 gameRouter.get('/', gameController.show);
 gameRouter.get('/:id', gameController.pull);
-gameRouter.get('/:id', gameController.getSubject);
+gameRouter.get('/subject/:id', gameController.getSubject);
 
 
 module.exports = gameRouter;
