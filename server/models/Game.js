@@ -20,7 +20,7 @@ class Questions{
 
     static async getSubjectById(subject_id){
         const response = await db.query('SELECT subject_name FROM subjects WHERE subject_id = $1', [subject_id])
-        if(response.rows.lenght === 0){
+        if(response.rows.length === 0){
             throw new Error("Unable to to locate subject with that id")
         }
         return response.rows[0].subject_name

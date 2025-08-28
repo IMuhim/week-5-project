@@ -24,8 +24,8 @@ async function pull(req, res){
 async function getSubject(req, res){
     try{
         const subject_id = req.params.id
-        const subject = await Questions.getAllBySubjectId(subject_id)
-        res.status(200).json(subject)
+        const subject_name = await Questions.getSubjectById(subject_id)
+        res.status(200).json({subject_name})
     }catch(err){
         res.status(404).json({ error: err.message})
     }
