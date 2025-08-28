@@ -22,12 +22,19 @@ const buttons = [
     ]
 
 
+const params = new URLSearchParams(window.location.search);
+const id = params.get('id')
+//subject now holds the info stored on the subject 'key' in url
+
+
 let question = 0
 let score = 0
 let scorePercentageNum = score / 10
 let currentAnswers
 
 
+const userId = localStorage.getItem("userId")
+const subjectId = id;
 
 
 
@@ -40,12 +47,12 @@ submitBtn.addEventListener('click',  () =>{
     if(question == 9){
         localStorage.setItem("quizScore", score)
         window.location.href = "results.html"
-    
+        
 
         
-    console.log(totalScore)
     totalScore.textContent = `Total Score: ${score}`
     }
+    console.log(score)
     FetchAnswers()
     question ++
 })
@@ -86,12 +93,6 @@ button2.addEventListener('click', () =>{
 
 
 
-
-
-
-const params = new URLSearchParams(window.location.search);
-const id = params.get('id')
-//subject now holds the info stored on the subject 'key' in url
 
 
 
