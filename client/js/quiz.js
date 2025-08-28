@@ -1,7 +1,6 @@
 const subjectName = document.querySelector('#subject-heading')
 const questionText = document.querySelector('#question-text')
 const submitBtn = document.querySelector('#submit-btn')
-const nextBtn = document.querySelector('#next-btn')
 
 const option1 = document.getElementById("label-1")
 const option2 = document.getElementById("label-2")
@@ -25,14 +24,28 @@ const buttons = [
 
 let question = 0
 let score = 0
+let scorePercentageNum = score / 10
 let currentAnswers
 
 
 
 
 document.addEventListener('DOMContentLoaded', FetchAnswers)
-submitBtn.addEventListener('click',  checkAnswer)
-nextBtn.addEventListener('click', FetchAnswers)
+submitBtn.addEventListener('click',  () =>{
+    checkAnswer()
+    if(question == 9){
+        localStorage.setItem("quizScore", score)
+        window.location.href = "results.html"
+    
+
+        
+    console.log(totalScore)
+    totalScore.textContent = `Total Score: ${score}`
+    }
+    FetchAnswers()
+    question ++
+})
+
 
 
 //ugly code ensures only 1 button is selected
@@ -80,17 +93,19 @@ async function fetchSubject(subjectId){
 async function FetchQuestion(id){
     const response = await fetch(`http://localhost:3000/game/?id=${id}`)
     const data = await response.json()
+    console.log(data)
     questionText.textContent = data[question].question_text
+
     return data
 }
 
 
 async function FetchAnswers(){
-    
     const data = await FetchQuestion(id)
     const questionId = data[question].question_id
     const response = await fetch(`http://localhost:3000/game/${questionId}`)
     currentAnswers = await response.json()
+        
     
         
     
@@ -100,20 +115,16 @@ async function FetchAnswers(){
     option3.textContent = currentAnswers[2].answer_text
     option4.textContent = currentAnswers[3].answer_text
 
-    question++
     
     for(i of buttons){
         i.checked = false
-    }
-    
+    }    
     return currentAnswers
 }
 
 
 
 async function checkAnswer(){
-    console.log(currentAnswers)
-
     for(let i = 0; i<=3 ; i++){
         if(buttons[i].checked === true && currentAnswers[i].is_correct === true){
             score ++
@@ -122,14 +133,10 @@ async function checkAnswer(){
         
         
     }
+    
         
     
 }
-
-
-
-
-
 
 
 
