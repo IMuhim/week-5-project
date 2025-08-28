@@ -11,6 +11,20 @@ const addAttempt = async (req, res) => {
   }
 };
 
+const getAttemptsByUser = async (req, res) => {
+  try {
+    const { user_id } = req.params;
+    const attempts = await Attempt.getAttemptsByUser(user_id);
+    console.log("Fetching attempts for user:", user_id);
+    console.log(attempts)
+    res.json({ success: true, attempts });
+  } catch (err) {
+    console.error("Error fetching attempts:", err);
+    res.status(500).json({ success: false, error: err.message });
+  }
+};
+
 module.exports = {
   addAttempt,
+  getAttemptsByUser,
 };

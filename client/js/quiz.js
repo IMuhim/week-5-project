@@ -50,7 +50,6 @@ submitBtn.addEventListener('click',  async () =>{
         localStorage.setItem("quizScore", score)
         const finalScore = score
 
-<<<<<<< HEAD
         try {
             const attemptData = {
                 user_id: userId,
@@ -78,9 +77,6 @@ submitBtn.addEventListener('click',  async () =>{
             // You might want to show an error message to the user here
         }
     
-=======
-        
->>>>>>> 3a28da259cd932f2c49592eba45a25716e99ee65
     }
     console.log(score)
     FetchAnswers()
