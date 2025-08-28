@@ -33,6 +33,8 @@ let scorePercentageNum = score / 10
 let currentAnswers
 
 
+const userId = localStorage.getItem("userId")
+const subjectId = id;
 
 
 
@@ -45,8 +47,6 @@ submitBtn.addEventListener('click',  () =>{
     if(question == 9){
         localStorage.setItem("quizScore", score)
         window.location.href = "results.html"
-        const userId = localStorage.getItem("userId")
-        const subjectId = id;
 
         
     totalScore.textContent = `Total Score: ${score}`

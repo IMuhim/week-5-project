@@ -41,9 +41,9 @@ loginForm.addEventListener('submit', async (event)=>{
 
     const result = await response.json();
     console.log('Response from backend:', result);
-    localStorage.setItem("userId", result.user_id)
+    localStorage.setItem("userId", result.user.user_id)
     showPopup("Login successful!");
-    window.location.href = '/selection';
+    window.location.href = '/selection'
 
 } catch (error) {
     console.log('Fetch error:', error);
