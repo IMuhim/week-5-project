@@ -1,7 +1,7 @@
 # Guardians Of The Database - Quiz Application
 
 ## Overview
-Our application is an interactive quiz application that tests students' knowledge across various subjects. Users can take the quiz and recieve their result their result at the end. Each user will require an account in order to have access to the application and they will be able to use their existing credentials once they have created an account.
+Our application is an interactive quiz application that tests students' knowledge across various subjects. Users can take the quiz and recieve their result at the end. Each user will require an account in order to have access to the application and they will be able to use their existing credentials once they have created an account.
 
 ## Features
 - User Accounts: Users are able to register to use the application and use their login to access it later.
@@ -24,7 +24,8 @@ Connection to the database is established throguh Supabase's connection string u
 ### Steps
 1. Clone the repository
 2. Install dependencies using: `npm install`
-3. Start the server: `npm run dev`
+3. Run `npm run setup-db` to seed the database
+4. Start the server: `npm run dev`
 
 ## Technologies Used
 - Frontend: HTML, CSS, JavaScript
