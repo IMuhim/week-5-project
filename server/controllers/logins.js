@@ -1,4 +1,3 @@
-
 const Logins = require("../models/User");
 
 async function login(req,res) {
