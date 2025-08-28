@@ -30,7 +30,11 @@ let currentAnswers
 
 
 
-document.addEventListener('DOMContentLoaded', FetchAnswers)
+
+document.addEventListener('DOMContentLoaded', async function () {
+    await fetchSubject(id)
+    await FetchAnswers()
+})
 submitBtn.addEventListener('click',  () =>{
     checkAnswer()
     if(question == 9){
@@ -45,6 +49,13 @@ submitBtn.addEventListener('click',  () =>{
     FetchAnswers()
     question ++
 })
+
+
+async function fetchSubject(id){
+    const response = await fetch (`http://localhost:3000/game/subject/${id}`)
+    const data = await response.json()
+    subjectName.textContent = data.subject_name
+}
 
 
 
@@ -74,7 +85,6 @@ button2.addEventListener('click', () =>{
  })
 
 
-submitBtn.addEventListener('click', loadNextQuestion)
 
 
 
