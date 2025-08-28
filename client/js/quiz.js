@@ -11,9 +11,12 @@ let question = 0
 // let optionc = 2
 // let optiond = 3
 
-document.addEventListener('DOMContentLoaded', FetchAnswers)
-submitBtn.addEventListener('click', loadNextQuestion)
+document.addEventListener('DOMContentLoaded', async function () {
+    await fetchSubject(id)
+    await FetchAnswers()
+})
 
+submitBtn.addEventListener('click', loadNextQuestion)
 
 
 

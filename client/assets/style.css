@@ -58,6 +58,38 @@ body {
     border-color: darkblue;
 } */
 
+.score-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+        
+.score-percentage {
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px 15px;
+    font-size: 2rem;
+    font-weight: bold;
+    min-width: 120px;
+    text-align: center;
+}
+        
+.score-text {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    color: #333;
+}
+
+.feedback-message {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
 .btn-main {
     background-color: white;
     color: black;
