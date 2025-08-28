@@ -12,6 +12,8 @@ const button1 = document.querySelector('#option-1')
 const button2 = document.querySelector('#option-2')
 const button3 = document.querySelector('#option-3')
 const button4 = document.querySelector('#option-4')
+
+
 //both sets of 4 imports refer to the 4 multiple choice answers. imported 'twice' for added functionality
 
 const buttons = [
@@ -48,6 +50,7 @@ submitBtn.addEventListener('click',  async () =>{
         localStorage.setItem("quizScore", score)
         const finalScore = score
 
+<<<<<<< HEAD
         try {
             const attemptData = {
                 user_id: userId,
@@ -75,6 +78,9 @@ submitBtn.addEventListener('click',  async () =>{
             // You might want to show an error message to the user here
         }
     
+=======
+        
+>>>>>>> 3a28da259cd932f2c49592eba45a25716e99ee65
     }
     console.log(score)
     FetchAnswers()
