@@ -47,6 +47,7 @@ submitBtn.addEventListener('click',  () =>{
     if(question == 9){
         localStorage.setItem("quizScore", score)
         window.location.href = "results.html"
+        
 
         
     totalScore.textContent = `Total Score: ${score}`
