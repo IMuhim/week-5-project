@@ -43,7 +43,10 @@ loginForm.addEventListener('submit', async (event)=>{
     console.log('Response from backend:', result);
     localStorage.setItem("userId", result.user.user_id)
     showPopup("Login successful!");
-    window.location.href = '/selection'
+    
+    setTimeout(() => {
+      window.location.href = '/selection' // replace with your login page path
+    }, 1000);
 
 } catch (error) {
     console.log('Fetch error:', error);

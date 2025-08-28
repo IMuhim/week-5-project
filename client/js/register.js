@@ -51,6 +51,10 @@ registerForm.addEventListener("submit", async (event) => {
     const result = await response.json();
     console.log("Response from backend:", result);
     showPopup("Registration successful!");
+
+    setTimeout(() => {
+      window.location.href = "login.html"; // replace with your login page path
+    }, 1000);
   } catch (error) {
     console.log("Fetch error:", error);
     showPopup("Network error. Please try again.", true);
