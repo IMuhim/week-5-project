@@ -74,6 +74,7 @@ button2.addEventListener('click', () =>{
  })
 
 
+submitBtn.addEventListener('click', loadNextQuestion)
 
 
 
