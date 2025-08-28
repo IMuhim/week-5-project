@@ -1,5 +1,19 @@
 const loginForm = document.querySelector('#loginForm')
 
+
+function showPopup(message, isError = false) {
+  const popup = document.getElementById('popup');
+  popup.textContent = message;
+
+  popup.className = 'popup ' + (isError ? 'error' : 'success') + ' show';
+
+  setTimeout(() => {
+    popup.className = 'popup';
+  }, 3000);
+}
+
+
+
 loginForm.addEventListener('submit', async (event)=>{
     event.preventDefault()
     const email  = event.target[0].value
@@ -20,15 +34,20 @@ loginForm.addEventListener('submit', async (event)=>{
 
 
     if (!response.ok) {
-        console.log(`Server error: ${response.status}`);
+        const errorData = await response.json();
+            showPopup(errorData.error || 'Login failed', true);
+            return;
     }
 
     const result = await response.json();
     console.log('Response from backend:', result);
     localStorage.setItem("userId", result.user_id)
+    showPopup("Login successful!");
+    window.location.href = '/selection';
 
 } catch (error) {
     console.log('Fetch error:', error);
+    showPopup("Network error. Please try again.", true);
 }
 
     
