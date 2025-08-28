@@ -12,7 +12,7 @@ let question = 0
 // let optiond = 3
 
 document.addEventListener('DOMContentLoaded',  FetchAnswers)
-submitBtn.addEventListener('Click', loadNextQuestion)
+submitBtn.addEventListener('click', FetchAnswers)
 
 
 
@@ -42,6 +42,7 @@ const id = params.get('id')
 async function FetchQuestion(id){
     const response = await fetch(`http://localhost:3000/game/?id=${id}`)
     const data = await response.json()
+    console.log(data)
     questionText.textContent = data[question].question_text
     return data
 }
@@ -57,6 +58,7 @@ async function FetchAnswers(){
     option2.textContent = answers[1].answer_text
     option3.textContent = answers[2].answer_text
     option4.textContent = answers[3].answer_text
+    question++
     
 
 }
