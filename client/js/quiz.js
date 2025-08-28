@@ -50,7 +50,6 @@ submitBtn.addEventListener('click',  () =>{
         
 
         
-    totalScore.textContent = `Total Score: ${score}`
     }
     console.log(score)
     FetchAnswers()
