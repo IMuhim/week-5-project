@@ -12,6 +12,8 @@ const button1 = document.querySelector('#option-1')
 const button2 = document.querySelector('#option-2')
 const button3 = document.querySelector('#option-3')
 const button4 = document.querySelector('#option-4')
+
+
 //both sets of 4 imports refer to the 4 multiple choice answers. imported 'twice' for added functionality
 
 const buttons = [
@@ -50,7 +52,6 @@ submitBtn.addEventListener('click',  () =>{
         
 
         
-    totalScore.textContent = `Total Score: ${score}`
     }
     console.log(score)
     FetchAnswers()
