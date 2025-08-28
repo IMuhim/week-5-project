@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz History</title>
+  <link rel="stylesheet" href="./assets/style.css"> <!-- your existing CSS file -->
+  <script defer src="./js/history.js"></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <img src="./assets/Guardians of the DB logo.png" alt="Logo" class="logo">
+  </nav>
+
+  <!-- History Container -->
+  <div class="quiz-container">
+    <h2 class="subject-heading">Your Quiz History</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Subject</th>
+          <th>Score</th>
+          <th>Total %</th>
+        </tr>
+      </thead>
+      <tbody id="attemptsTableBody">
+        
+      </tbody>
+    </table>
+
+
+    <div style="text-align:center; margin-top: 1.5rem;">
+      <button class="btn-main" onclick="window.location.href='selection.html'">
+        Back to Dashboard
+      </button>
+    </div>
+  </div>
+
+</body>
+</html>

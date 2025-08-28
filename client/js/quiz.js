@@ -44,14 +44,39 @@ document.addEventListener('DOMContentLoaded', async function () {
     await fetchSubject(id)
     await FetchAnswers()
 })
-submitBtn.addEventListener('click',  () =>{
+submitBtn.addEventListener('click',  async () =>{
     checkAnswer()
     if(question == 9){
         localStorage.setItem("quizScore", score)
-        window.location.href = "results.html"
-        
+        const finalScore = score
 
-        
+        try {
+            const attemptData = {
+                user_id: userId,
+                subject_id: subjectId,
+                score: finalScore
+            };
+
+            const response = await fetch('http://localhost:3000/attempts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(attemptData)
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to save attempt');
+            }
+            const result = await response.json();
+            console.log('Response from backend:', result);
+            // Only redirect after successful attempt save
+            window.location.href = "results.html";
+        } catch (error) {
+            console.error('Error saving attempt:', error);
+            // You might want to show an error message to the user here
+        }
+    
     }
     console.log(score)
     FetchAnswers()

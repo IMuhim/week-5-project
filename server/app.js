@@ -8,6 +8,7 @@ const loginRouter = require('./routers/logins');
 const registerRouter = require('./routers/register');
 const gameRouter= require('./routers/router')
 const selectionRouter = require('./routers/selections')
+const attemptRouter = require('./routers/attempts')
 
 
 const app = express();
@@ -31,5 +32,6 @@ app.use('/game', gameRouter)
 app.use('/login',loginRouter)
 app.use('/register',registerRouter)
 app.use('/selection',selectionRouter)
+app.use('/attempts',attemptRouter)
 
 module.exports = app;
