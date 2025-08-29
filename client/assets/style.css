@@ -275,3 +275,19 @@ th {
 .navbar-links a {
   text-decoration: none;
 }
+/* ===== Welcome Heading ===== */
+#welcome-name {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 1rem 0;
+  color: #007bff; /* matches your button/brand color */
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.5px;
+}
+
+.navbar .container-fluid {
+  display: flex;
+  justify-content: center; /* centers horizontally */
+  align-items: center;     /* centers vertically */
+}
