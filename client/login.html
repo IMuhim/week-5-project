@@ -1,26 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script defer src="./js/login.js"></script>
+    <link rel="stylesheet" href="./assets/style.css">
     <title>Login</title>
-</head>
-<body>
-    <form id="loginForm">
-        <div>
-        <label for="email">Enter Email: </label>
-        <input type="text" name="email" id="email" placeholder="i.e. text@gmail.com" required/>
-        </div>
-
-        <div>
-        <label for="password">Enter Password: </label>
-        <input type="password" name="password" id ="password" placeholder="Enter your password" required />
-        </div>
-
-        <div>
-        <input type="submit" value="submit" />
-        </div>
-    </form>
-</body>
+  </head>
+  <body>
+    <div id="popup" class="popup hidden"></div>
+    <div class="form-container">
+        <img src="assets/Guardians of the DB logo.png" alt="Guardians of the DB Logo" class="logo">
+        <form id="loginForm">
+            <h2>Login</h2>
+          <div>
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="your@email.com"
+              required
+            />
+          </div>
+          <div>
+            <label for="password">Password:</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="********"
+              required
+            />
+          </div>
+          <div>
+            <input type="submit" value="Login" />
+          </div>
+          <div class="form-footer">
+            <p>Don’t have an account? <a href="register.html">Register</a></p>
+          </div>
+        </form>
+    </div>
+  </body>
 </html>

@@ -1,11 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="./Js/register.js"></script>
+    <link rel="stylesheet" href="./assets/style.css" />
     <title>Sign up</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <div id="popup" class="popup hidden"></div>
+    <div class="form-container">
+        <img src="assets/Guardians of the DB logo.png" alt="Guardians of the DB Logo" class="logo">
+        <form id="registerForm">
+          <h2>Sign Up</h2>
+          <div>
+            <label for="name">Name:</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="i.e. Yahya"
+              required
+            />
+          </div>
+          <div>
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="your@email.com"
+              required
+            />
+          </div>
+          <div>
+            <label for="password">Password:</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="********"
+              required
+            />
+          </div>
+          <div>
+            <label for="password">Retype Password:</label>
+            <input
+              type="password"
+              name="confirmPassword"
+              id="confirmPassword"
+              placeholder="********"
+              required
+            />
+          </div>
+          <div>
+            <input type="submit" value="Register" />
+          </div>
+          <div class="form-footer">
+            <p>Already have an account? <a href="login.html">Login</a></p>
+          </div>
+        </form>
+    </div>
+  </body>
 </html>

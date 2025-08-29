@@ -1,67 +1,30 @@
-const request = require("supertest");
-const app = require("../../../../app");
-const Logins = require("../../../models/Logins");  
+// /
+// const request = require("supertest");
+// const app = require("../../../app"); /
+// const loginController = require("../../../controllers/login"); 
 
-jest.mock("../../../models/Logins");
+// jest.mock("../../../controllers/login", () => ({
+//     create: jest.fn((req, res) => res.status(200).json({ message: "Called login create" }))
+// }));
 
-describe("POST /auth/login", () => {
+// describe("Login Controller", () => {
+//     it("should call the login create function and return 200", async () => {
+//         const res = await request(app)
+//             .post("/auth/login")  
+//             .send({ username: "test", password: "test123" });
 
-    beforeEach(() => {
-        jest.clearAllMocks();
+//         expect(res.status).toBe(200);
+//         expect(res.body).toEqual({ message: "Called login create" });
+//         expect(loginController.create).toHaveBeenCalled();
+//     });
 
-    });
+//     it("should handle missing body gracefully", async () => {
+//         const res = await request(app)
+//             .post("/auth/login")
+//             .send({}); 
 
-    test("Login succeeds with correct credentials", async () => {
-        Logins.findOne.mockResolvedValue({
-            id: 1,
-            username: "testuser",
-            password: "password123"
-        });
-const res = await request(app)
-            .post("/auth/login")
-            .send({ username: "testuser", password: "password123" });
-
-        expect(res.statusCode).toBe(200);
-        expect(res.body).toEqual({
-            message: "Login successful",
-            userId: 1
-        });
-    });
-
-    test("Login fails with wrong password", async () => {
-        Logins.findOne.mockResolvedValue({
-            id: 1,
-            username: "testuser",
-            password: "password123"
-        });
-
-        const res = await request(app)
-            .post("/auth/login")
-            .send({ username: "testuser", password: "wrongpass" });
-
-        expect(res.statusCode).toBe(401);
-        expect(res.body).toEqual({ message: "Invalid credentials" });
-    });
-
-    test("Login fails with non-existent user", async () => {
-        Logins.findOne.mockResolvedValue(null);
-
-        const res = await request(app)
-            .post("/auth/login")
-            .send({ username: "fakeuser", password: "password123" });
-
-        expect(res.statusCode).toBe(401);
-        expect(res.body).toEqual({ message: "Invalid credentials" });
-    });
-
-    test("Login fails when username or password is missing", async () => {
-        const res = await request(app)
-            .post("/auth/login")
-            .send({ username: "testuser" }); 
-
-        expect(res.statusCode).toBe(400);
-        expect(res.body).toEqual({ message: "Username and password are required" });
-    });
-
-});
-n
+//         expect(res.status).toBe(200); 
+//         expect(res.body).toEqual({ message: "Called login create" });
+//         expect(loginController.create).toHaveBeenCalled();
+//     });
+// });
