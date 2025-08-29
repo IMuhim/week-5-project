@@ -42,6 +42,7 @@ loginForm.addEventListener('submit', async (event)=>{
     const result = await response.json();
     console.log('Response from backend:', result);
     localStorage.setItem("userId", result.user.user_id)
+    localStorage.setItem("name", result.user.name)
     showPopup("Login successful!");
     
     setTimeout(() => {

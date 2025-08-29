@@ -40,6 +40,7 @@ const subjectId = id;
 
 
 
+
 document.addEventListener('DOMContentLoaded', async function () {
     await fetchSubject(id)
     await FetchAnswers()
